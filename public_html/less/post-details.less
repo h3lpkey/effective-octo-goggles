@@ -1,0 +1,171 @@
+@import "mixins";
+
+/* BlockQuote */
+/*-----------------------------------*/
+
+.blockquote {
+	display: block;
+	font-size: @font-size;
+	line-height: 1.9;
+	color: @color-lightGray;
+	border-left: 1px solid @color-lightGray;
+	padding-left: 1.5em;
+	margin: 2.5em 3em 3em 1.5em;
+
+	span {
+		display: block;
+		margin-top: 1em;
+		font-style: italic;
+		text-transform: uppercase;
+	}
+
+	@media @md {margin: 2em;}
+	@media @sm {font-size: @font-size-sm;}
+	@media @xs {font-size: @font-size-xs;}
+	@media @xxs {margin: 2em 1em;}
+}
+
+/* Unordered List */
+/*-----------------------------------*/
+
+.unordered-list {
+	margin: 0 0 0 2.5em;
+
+	li {
+		line-height: 1.3;
+		margin-bottom: 1.4em;
+		position: relative;
+
+		&:before {
+			content: '';
+			.size(6px);
+			.border-radius(50%);
+			background-color: @color-red;
+			position: absolute;
+			top: 5px;
+			left: -16px;
+		}
+	}
+}
+
+/* Ordered List */
+/*-----------------------------------*/
+
+.ordered-list {
+	margin: 0 0 0 1.3em;
+	list-style-type: none;
+	counter-reset: list;
+
+	li {
+		line-height: 1.3;
+		margin-bottom: 1.4em;
+		position: relative;
+
+		&:before {
+			counter-increment: list;
+			content: counter(list)'.';
+			font-style: normal;
+			font-weight: 700;
+			color: @color-red;
+			margin-right: 4px;
+		}
+	}
+}
+
+/* Definition List */
+/*-----------------------------------*/
+
+.definition-list {
+	margin: 2.5em 3em 3em 1.24em;
+	@media @md {margin: 2em .6em;}
+	@media @xs {margin: 2em 1em;}
+	@media @xxs {margin: 2em 0;}
+
+	dt {
+		font-size: @font-size - 1;
+		font-weight: 500;
+		color: @color-dark;
+		letter-spacing: .2em;
+		text-transform: uppercase;
+		margin: .6em 0;
+		@media @xxs {letter-spacing: 0;}
+	}
+
+	dd {
+		margin-bottom: 1.6em;
+		@media @md {margin-bottom: 1.4em;}
+	}
+}
+
+/* HighLighted First Letter */
+/*-----------------------------------*/
+
+.first-letter:first-letter {
+	float: left;
+	font-size: 4.4em;
+	line-height: .8;
+	//color: @color-black;
+	text-transform: uppercase;
+	padding: .18em .26em 0 0;
+}
+
+/* Post Details */
+/*-----------------------------------*/
+
+.news-item.news-details {
+	padding-bottom: 0;
+	margin-bottom: 0;
+
+	.post-date {margin-bottom: 1.2em;}
+
+	.post-title {
+		font-size: @font-size-h3;
+		@media @sm {font-size: @font-size-h5 + 1;}
+		@media @xxs {font-size: @font-size;}
+		text-transform: none;
+		margin-bottom: .6em;
+	}
+
+	.description {
+		font-size: @font-size - 1;
+		@media @md {font-size: @font-size-md;}
+		@media @sm {font-size: @font-size-sm;}
+		@media @xs {font-size: @font-size-xs;}
+		color: @color-gray2;
+
+		&.background-light {background-color: @color-light;}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: 400;
+			text-transform: none;
+			margin-bottom: 1.2em;
+		}
+
+		blockquote {
+			.blockquote();
+		}
+
+		ul {
+			.unordered-list();
+		}
+
+		ol {
+			.ordered-list();
+		}
+
+		dl {
+			.definition-list();
+		}
+
+		p {
+			line-height: 1.7;
+			margin-bottom: 1.6em;
+			&:last-child {margin-bottom: 0;}
+		}
+
+		a {
+			font-weight: 600;
+			text-decoration: underline;
+		}
+	}
+}

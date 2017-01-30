@@ -1,0 +1,469 @@
+@import "mixins";
+
+/* Section General Styles */
+/*---------------------------------------------*/
+
+.section-light {background-color: @color-light;}
+
+.section-title {
+	font-size: @font-size-h2;
+	@media @sm {font-size: @font-size-h4;}
+	@media @xs {font-size: @font-size-h6;}
+	font-weight: 600;
+	color: @color-darkGray;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 17px 30px;
+	@media @xlg {padding: 17px 20px;}
+	@media @lg {padding: 17px 10px;}
+	@media @sm {padding: 17px 15px;}
+	border-bottom: 1px solid @color-lightGray;
+	margin: 0;
+
+	&.text-left {text-align: left;}
+
+	&.green {
+		color: @color-white;
+		background-color: @color-green;
+	}
+}
+
+/* Stakes Tables */
+/*---------------------------------------------*/
+
+.stakes-controls {
+	background-color: @color-light3;
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	.tab-header {
+		font-size: 0;
+
+		li {
+			float: left;
+			border: none;
+			margin-right: 20px;
+			@media @lg {margin-right: 10px;}
+		}
+
+		a {
+			display: block;
+			height: @button-md-height;
+			line-height: @button-md-height - @button-border-width * 2;
+			.border-radius(@button-border-radius);
+			background-color: @button-color;
+			font-family: @button-font-family;
+			font-size: @button-font-size;
+			color: @button-color2;
+			text-transform: none;
+			white-space: nowrap;
+			letter-spacing: @button-letter-spacing;
+			padding: 0 28px;
+			.transition();
+
+			@media @sm {
+				padding: 0 16px;
+			}
+		}
+
+		.active a {background-color: @color-yellow;}
+
+		@media @xs {
+			text-align: center;
+			margin-bottom: 10px;
+
+			li {
+				float: none;
+				display: inline-block;
+				margin: 0 5px 5px;
+			}
+		}
+
+		@media @xxs {
+			li {
+				width: 48%;
+				margin: 0 1% 5px;
+			}
+		}
+	}
+
+	@media @xs {
+		.text-right {text-align: center;}
+	}
+}
+
+/* Stakes on Game Page */
+/*---------------------------------------------*/
+
+.section-stakes.style2 {
+	.event-details {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		background-color: @color-light;
+
+		li {
+			float: left;
+			margin-right: 30px;
+			@media @xxs {margin-right: 15px;}
+		}
+
+		strong {
+			font-size: @font-size + 2;
+			font-weight: 400;
+			color: @color-darkGray;
+		}
+
+		.game-type {
+			font-size: 16px;
+			color: @color-lightGray4;
+			margin-top: 3px;
+		}
+	}
+}
+
+/* Section Archive */
+/*---------------------------------------------*/
+
+.archive-controls {
+	background-color: @color-light3;
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+
+
+	@media @xs {
+		.text-right {text-align: center;}
+	}
+}
+
+/* Results Chart */
+/*---------------------------------------------*/
+
+.section-results-chart {
+	.pie-chart-frame {
+		.size(240px, 250px);
+		margin: 0 auto;
+
+		iframe {
+			display: block;
+			.size(100%);
+		}
+	}
+
+	@media @sm {
+		.btn {
+			height: auto;
+			line-height: 1.2;
+			white-space: normal;
+			padding: 10px;
+		}
+
+		.text-center.margin-top-40 {margin-top: 134px !important;}
+	}
+
+	@media @xs {
+		.text-center.margin-top-40 {margin-top: 20px !important;}
+	}
+}
+
+/* Social Widgets */
+/*---------------------------------------------*/
+
+.section-social-widgets {
+	background-color: @color-light;
+	.btn {margin-bottom: 20px;}
+	#vk_groups {max-width: 100%; margin: 0 auto;}
+
+	@media @sm {
+		.row {margin: 0 -5px;}
+		.col-sm-4 {padding: 0 5px;}
+	}
+
+	@media @xs {
+		#vk_groups, .twitter-timeline {margin: 0 auto 20px !important;}
+	}
+}
+
+/* Posts */
+/*---------------------------------------------*/
+
+.section-posts {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 40%;
+		bottom: 0;
+		width: 1px;
+		background-color: @color-lightGray;
+	}
+
+	.column-left {
+		float: left;
+		width: 40%;
+	}
+
+	.column-right {
+		float: right;
+		width: 60%;
+	}
+
+	@media @sm {
+		&:before {display: none;}
+
+		.column-left,
+		.column-right {
+			float: none;
+			width: 100%;
+		}
+
+	    .column-left {border-bottom: 1px solid @color-lightGray;}
+	}
+}
+
+/* Text Block */
+/*---------------------------------------------*/
+
+.section-text p:last-of-type {margin-bottom: 0;}
+
+/* Game Details */
+/*---------------------------------------------*/
+
+.section-game-details {
+	.game-time {
+		background-color: @color-green;
+		font-size: @font-size + 2;
+		color: @color-white;
+		text-align: center;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.game-teams {
+		font-size: 0;
+		text-align: center;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		.background-size();
+
+		@media @xs {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			.team {margin: 0 10px;}
+		}
+
+		.team,
+		.score {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.name {
+			font-size: @font-size;
+			margin-bottom: 1em;
+		}
+
+		.coat {
+			.size(124px, 160px);
+			border: 1px solid @color-lightGray;
+			position: relative;
+
+			img {
+				.absolute();
+				margin: auto;
+				max-height: 100%;
+			}
+		}
+
+		.score {
+			margin: 32px 30px 0;
+			min-width: 240px;
+
+			@media @xs {display: block;}
+			@media @xxs {margin: 26px 0 0;}
+
+			span, em {
+				font-size: @font-size + 2;
+				font-weight: 700;
+				font-style: normal;
+				color: @color-darkGray;
+				padding: 19px 25px;
+				display: inline-block;
+			}
+
+			span {
+				background-color: @color-light3;
+				padding: 20px 40px;
+			}
+		}
+	}
+}
+
+/* Game Details Style 2 */
+/*---------------------------------------------*/
+
+.section-game-details.style2 {
+	.section-title {border-bottom: none;}
+
+	.game-teams {
+		position: relative;
+		z-index: 0;
+
+		&:before {
+			content: '';
+			.absolute(@z-index: -1);
+			background-color: fade(@color-dark, 50%);
+		}
+
+		.title {
+			font-size: @font-size-h3;
+			font-weight: 400;
+			color: @color-white;
+			text-transform: uppercase;
+			margin-bottom: 2em;
+			@media @sm {margin-bottom: .4em;}
+			@media @xs {font-size: @font-size-h5;}
+		}
+
+		.inner {
+			margin-bottom: 40px;
+			@media @xxs {margin-bottom: 10px;}
+		}
+
+		.name {color: @color-white;}
+
+		.coat {
+			border: none;
+			background-color: fade(@color-black, 80%);
+		}
+
+		.score {
+			span, em {
+				font-size: @font-size-h1;
+				font-weight: 400;
+				color: @color-yellow;
+				padding: 19px 10px;
+				background: none;
+			}
+			@media @xxs {margin-top: 6px;}
+		}
+
+		.game-date {
+			font-size: @font-size - 2;
+			color: @color-yellow;
+			position: absolute;
+			top: 44px;
+			left: 30px;
+
+			@media @sm {
+				position: static;
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
+
+/* Office Review */
+/*---------------------------------------------*/
+
+.section-office-review {
+	.clearfix();
+	.background-size();
+	position: relative;
+
+	&:before {
+		content: '';
+		.absolute();
+		.gradient-horizontal-3points(fade(@color-black, 90%), fade(@color-black, 0%), 60%, fade(@color-black, 0%));
+		display: block;
+	}
+
+	.column-left {
+		width: 55%;
+		float: left;
+		position: relative;
+
+		@media @xs {
+			width: 100%;
+			float: none;
+		}
+
+		.title {
+			font-size: @font-size-h2;
+			font-weight: 600;
+			color: @color-white;
+			text-transform: none;
+			margin-bottom: 2.3em;
+			@media @sm {font-size: @font-size-h5 + 1;}
+			@media @xs {margin-bottom: 1.5em; text-align: center;}
+		}
+	}
+
+	.column-right {
+		width: 35%;
+		float: right;
+		background-color: fade(@color-black, 80%);
+		position: relative;
+
+		@media @sm {width: 45%;}
+
+		@media @xs {
+			width: 100%;
+			float: none;
+		}
+
+		.title {
+			font-size: @font-size-h5;
+			font-weight: 400;
+			color: @color-white;
+			text-transform: none;
+			margin-bottom: 1.7em;
+		}
+	}
+
+	.description {
+		font-size: @font-size + 2;
+		line-height: 1.4;
+		color: @color-white;
+		max-width: 65%;
+		margin-bottom: 3em;
+		@media @xlg {max-width: none;}
+		@media @xs {font-size: @font-size; margin-bottom: 2em;}
+		@media @xs {font-size: @font-size-xs;}
+	}
+
+	@media @xs {
+		.btn {width: 100%;}
+	}
+}
+
+// Rating Stars
+.office-rating {
+	margin-bottom: 60px;
+	@media @sm {margin-bottom: 50px;}
+	@media @xs {margin-bottom: 30px; text-align: center;}
+	font-size: 0;
+
+	.rating-label {
+		display: inline-block;
+		vertical-align: middle;
+		font-size: @font-size - 2;
+		font-weight: 600;
+		color: @color-white;
+	}
+
+	.rating-stars {
+		display: inline-block;
+		margin: 0 14px;
+
+		i {
+			font-size: 24px;
+			color: @color-yellow;
+			margin: 0 0.22em;
+			vertical-align: -34%;
+		}
+	}
+}

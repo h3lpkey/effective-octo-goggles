@@ -1,0 +1,188 @@
+/*-----------------------------------*/
+/* Events Calendar */
+/*-----------------------------------*/
+
+// Project variables and mixins
+@import "variables.less";
+
+// Calendar Variables
+@import "events/variables.less";
+
+// Calendar Components
+@import "events/grid.less";
+@import "events/month.less";
+@import "events/week.less";
+@import "events/day.less";
+@import "events/events.less";
+@import "events/theme.less";
+
+.events-sidebar {
+	padding: 0;
+}
+
+// Modal Window
+.modal-open {
+	overflow-y: visible !important;
+}
+
+.modal {
+	overflow: auto;
+}
+
+.modal-dialog {
+	position: fixed;
+	top: 100px;
+	left: 300px;
+	right: 300px;
+	bottom: 100px;
+	margin: 0;
+	width: auto;
+}
+
+.modal-content {
+	height: 100%;
+}
+
+.modal-body {
+	height: 100%;
+	padding-bottom: 120px;
+	iframe {
+		height: 100% !important;
+	}
+}
+
+.modal-footer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+@media (max-width: 1299px) {
+	.modal-dialog {
+		left: 200px;
+		right: 200px;
+	}
+}
+
+@media (max-width: 1199px) {
+	.modal-dialog {
+		top: 50px;
+		left: 100px;
+		right: 100px;
+		bottom: 50px;
+	}
+}
+
+@media (max-width: 767px) {
+	.modal-dialog {
+		top: 10px;
+		left: 10px;
+		right: 10px;
+		bottom: 10px;
+	}
+}
+
+@media (max-width: 479px) {
+	.modal-dialog {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	.modal-content {
+		border: none;
+		border-radius: 0;
+	}
+
+	.modal-body {
+		padding: 0 0 102px;
+	}
+}
+
+// Calendar Header
+.calendar-header {
+	position: relative;
+	padding: 11px 0;
+	background-color: @color-green;
+
+	.calendar-title {
+		font-size: @font-size + 2;
+		font-weight: 400;
+		color: @color-white;
+		text-align: center;
+		text-transform: none;
+		margin: 0;
+	}
+
+	.prev, .next {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		font-size: 16px;
+		color: @color-white;
+		line-height: 42px;
+		text-align: center;
+		width: 40px;
+		border-right: 1px solid @color-green2;
+		.transition();
+
+		&:hover, &:active {background-color: @color-green2;}
+	}
+
+	.next {
+		left: auto;
+		right: 0;
+		border-right: none;
+		border-left: 1px solid @color-green2;
+	}
+}
+
+.events-list {
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	font-size: 11px;
+	color: @color-white;
+	text-transform: uppercase;
+	background-color: @color-dark;
+	white-space: nowrap;
+	padding: 10px;
+	max-height: none;
+	visibility: hidden;
+	opacity: 0;
+	.transition();
+	.transform(translateX(-50%));
+
+	&:before {
+		content: '';
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-top: 6px solid @color-dark;
+		position: absolute;
+		left: 50%;
+		bottom: -6px;
+		margin-left: -6px;
+	}
+}
+
+.cal-month-day {
+	&.cal-day-event {cursor: pointer};
+	background-color: @cell-header-empty;
+
+	&:hover, &:active {
+		.events-list {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+
+#cal-day-tick {display: none !important;}
+
+.cal-cell {
+	border-right: 1px solid @color-lightGray;
+	border-bottom: 1px solid @color-lightGray;
+}

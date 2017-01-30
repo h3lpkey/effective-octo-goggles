@@ -1,0 +1,112 @@
+@import "mixins";
+
+/* Left SideBar */
+/*-----------------------------------*/
+
+.sidebar-left {
+	background-color: @color-dark;
+
+	.box {
+		padding: 20px 37px;
+		@media @lg {padding: 15px;}
+		@media @xs {padding: 10px 15px;}
+	}
+
+	.box-black {background-color: @color-black;}
+	.row-middle .box {height: 100%;}
+
+	.sidebar-left-toggle {
+		display: none;
+		@media @md {display: block;}
+		position: absolute;
+		top: 0;
+		right: -60px;
+		.size(60px, 50px);
+		background-color: @color-yellow2;
+		border-top: 1px solid @color-yellow3;
+		border-bottom: 1px solid @color-yellow3;
+		font-size: 10px;
+		font-weight: 600;
+		color: @color-white;
+		text-transform: uppercase;
+		text-align: center;
+		text-shadow: 1px 1px 0 @color-yellow3;
+		padding-top: 9px;
+		.transition();
+
+		&:hover, &:active {background-color: @color-yellow;}
+
+		i {
+			display: block;
+			font-size: 16px;
+			margin-bottom: 3px;
+		}
+
+		/*@media @xs {
+			width: 45px;
+			right: -45px;
+		}*/
+	}
+}
+
+/* Right SideBar */
+/*-----------------------------------*/
+
+.sidebar {
+	background-color: @color-white;
+	border-left: 1px solid @color-lightGray;
+
+	@media @xmd {
+		.sidebar-inner {
+			max-height: 100%;
+			overflow: auto;
+
+			&::-webkit-scrollbar {
+				width: 4px;
+			}
+
+			&::-webkit-scrollbar-track {
+				border-radius: 0;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				border-radius: 0;
+				background-color: @color-yellow;
+			}
+		}
+	}
+
+	.sidebar-toggle {
+		display: none;
+		@media @xmd {display: block;}
+		position: absolute;
+		top: 280px;
+		@media @xs {top: 0;}
+		left: -60px;
+		.size(60px, 50px);
+		background-color: @color-yellow2;
+		border-top: 1px solid @color-yellow3;
+		border-bottom: 1px solid @color-yellow3;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 50px;
+		color: @color-white;
+		text-transform: uppercase;
+		text-align: center;
+		text-shadow: 1px 1px 0 @color-yellow3;
+		.transition();
+
+		&:hover, &:active {background-color: @color-yellow;}
+
+		.active& i {
+			.transform(rotateZ(180deg));
+		}
+	}
+}
+
+
+
+
+
+
+

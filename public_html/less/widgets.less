@@ -1,0 +1,68 @@
+@import "mixins";
+
+/* General Widget Styles */
+/*-----------------------------------*/
+
+.widget {
+	border-bottom: 1px solid @color-lightGray;
+}
+
+.widget-title {
+	font-size: @font-size-h3;
+	@media @lg {font-size: @font-size-h4;}
+	@media @xs {font-size: @font-size-h5;}
+	font-weight: 600;
+	color: @color-darkGray;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 18px 10px;
+	border-bottom: 1px solid @color-lightGray;
+	margin: 0;
+}
+
+/* Widget Chart */
+/*-----------------------------------*/
+
+.widget-chart {
+	.title {
+		font-size: @font-size-h5;
+		color: @color-gray;
+		text-align: center;
+		text-transform: none;
+		margin-bottom: 1.6em;
+	}
+
+	.pie-chart-frame {
+		.size(240px, 250px);
+		margin: 0 auto 20px;
+
+		iframe {
+			display: block;
+			.size(100%);
+		}
+	}
+}
+
+/* Widget Partners */
+/*-----------------------------------*/
+
+.widget-partners {
+	border-bottom: none;
+
+	li {
+		float: left;
+		width: 50%;
+		padding: 16px 25px 8px;
+		@media @lg {padding: 10px 10px 4px;}
+		border-right: 1px solid @color-lightGray;
+		border-bottom: 1px solid @color-lightGray;
+	}
+
+	img {
+		margin: 0 auto 10px;
+	}
+
+	.btn {
+		margin-bottom: 10px;
+	}
+}

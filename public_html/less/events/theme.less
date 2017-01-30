@@ -1,0 +1,125 @@
+.cal-row-head [class*="cal-cell"]:first-child,
+.cal-row-head [class*="cal-cell"] {
+	font-size: @font-size-xs;
+	font-weight: 600;
+	color: @color-white;
+	background-color: @color-yellow2;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 12px 0;
+}
+
+.cal-row-head [class*="cal-cell"] small {
+	font-weight: normal;
+}
+
+.cal-month-day {
+	height: @rowHeightMonth;
+}
+
+.cal-year-box [class*="span"],
+.cal-month-box [class*="cal-cell"] {
+	min-height: @rowHeightMonth;
+	position: relative;
+}
+
+.cal-year-box .row-fluid,
+.cal-month-box .cal-row-fluid {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.cal-month-box {border-left: 1px solid @color-lightGray;}
+
+span[data-cal-date] {
+	display: block;
+	float: none !important;
+	background-color: @cell-header-empty;
+	font-size: @font-size-xs;
+	font-weight: 400;
+	color: @cell-header-font-color;
+	padding: 5px 12px;
+	height: 100%;
+	line-height: 32px;
+	text-align: center;
+
+	.cal-day-event & {
+		&:before {
+			content: '';
+			border-top: 10px solid transparent;
+			border-right: 10px solid @cell-header-today;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+ 	}
+
+	.cal-day-today & {
+		background-color: @cell-header-today;
+		color: @color-white;
+	}
+}
+
+.cal-day-today {
+	background-color: @cell-bg-today;
+}
+
+#cal-week-box {
+	display: none !important;
+}
+
+#cal-day-tick {
+	text-align: center;
+	background-color: @cell-bg-with-event;
+	.cal-day-today & {
+		background-color: @cell-bg-today;
+	}
+}
+
+#cal-slide-content {
+	padding: 20px;
+	@media @lg {padding: 10px;}
+	color: @font-color;
+	background-color: @cell-header-empty;
+	border-right: 1px solid @color-lightGray;
+	border-bottom: 1px solid @color-lightGray;
+	.border-radius(@cell-border-radius);
+	.box-shadow(@cell-box-shadow);
+
+	ul {
+		list-style: decimal;
+		li {
+			padding-left: 12px;
+			margin-bottom: 5px;
+		}
+	}
+	a.event-item {
+		color: lighten(@cell-font-color, 10%);
+		&:hover {
+			color: @color-green;
+		}
+		font-size: 14px;
+		font-weight: normal;
+		line-height: 1.2;
+	}
+}
+
+.events-list {
+	max-height: @rowHeightMonth  - 30px;
+	padding: 12px;
+	cursor: default;
+	color: @cell-font-color;
+
+	.event {
+		display: none;
+	}
+}
+
+a.cal-event-week {
+	text-decoration: none;
+	color: #151515;
+}
+
+.badge-important {
+	background-color: #b94a48;
+}

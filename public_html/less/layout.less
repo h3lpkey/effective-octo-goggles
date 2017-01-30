@@ -1,0 +1,108 @@
+@import "mixins";
+
+/* General Layout */
+/*-----------------------------------*/
+
+.page {
+	padding-left: 324px;
+	@media @lg {padding-left: 279px;}
+	@media @xmd {padding-right: 43px;}
+	@media @md {padding-left: 59px;}
+	@media @xs {padding: 0;}
+}
+
+.content-wrapper,
+.sidebar {
+	float: left;
+	width: 75%;
+	min-height: 1px;
+}
+
+.content-wrapper {
+	@media @xmd {
+		float: none;
+		width: 100%;
+		border-right: 1px solid @color-lightGray;
+	}
+
+	@media @xs {border: none !important;}
+}
+
+.sidebar {
+	position: relative;
+	width: 25%;
+	right: 0;
+
+	@media @xmd {
+		float: none;
+		width: 270px;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 3;
+		.transform(translate3d(270px, 0, 0));
+		.transition();
+
+		&.active {
+			.transform(translate3d(0, 0, 0));
+		}
+	}
+}
+
+.sidebar-left {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 3;
+	&.active {z-index: 4;}
+	width: 265px;
+	@media @lg {width: 220px;}
+
+	@media @md {
+		.transform(translate3d(-220px, 0, 0));
+		.transition();
+
+		&.active {
+			.transform(translate3d(0, 0, 0));
+		}
+	}
+}
+
+.floating-menu,
+a.to-top {
+	width: 60px;
+	position: fixed;
+	top: 0;
+	left: 265px;
+	@media @lg {left: 220px;}
+	z-index: 2;
+}
+
+.floating-menu {
+	@media @md {
+		top: 50px;
+		left: 0;
+	}
+
+	@media @xs {
+		.transform(translate3d(-50px, 0, 0));
+		.transition();
+
+		&.active {
+			.transform(translate3d(0, 0, 0));
+		}
+	}
+}
+
+a.to-top {
+	top: auto;
+	bottom: 0;
+
+	@media @md {
+		position: static;
+		display: block;
+	}
+}
+

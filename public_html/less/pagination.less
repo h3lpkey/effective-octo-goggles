@@ -1,0 +1,81 @@
+@import "mixins";
+
+/* Pagination */
+/*-----------------------------------*/
+
+.pagination-wrapper {
+	padding-top: 15px;
+	padding-bottom: 5px;
+	font-size: 0;
+	text-align: center;
+}
+
+.pagination {
+	display: inline-block;
+	white-space: nowrap;
+	.border-radius(0);
+	margin: 0;
+
+	& > li {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 5px 10px;
+		border: none;
+
+		& > a, & > span {
+			position: relative;
+			float: none;
+			display: block;
+			font-size: @font-size - 2;
+			font-weight: 600;
+			.size(40px);
+			line-height: 38px;
+			color: @color-gray;
+			text-align: center;
+			padding: 0;
+			margin: 0;
+			background-color: transparent;
+			border: 1px solid @color-lightGray;
+			.transition();
+
+			@media @xxs {
+				.size(30px);
+				line-height: 28px;
+			}
+
+			&:hover, &:focus, &:active {
+				background-color: @color-light;
+			}
+		}
+
+		& > span {
+			cursor: default;
+
+			&:hover, &:focus, &:active {
+				background-color: transparent;
+			}
+
+			&.current {
+				background-color: @color-green;
+				border-color: @color-green;
+				color: @color-white;
+			}
+		}
+
+		.prev.page-numbers,
+		.next.page-numbers {
+			font-size: 16px;
+			line-height: 40px;
+			@media @xxs {line-height: 32px;}
+			color: @color-green;
+			.border-radius(0);
+
+			&:before {
+				content: '\e921';
+				.icon-font();
+			}
+		}
+
+		.next.page-numbers:before {content: '\e920';}
+	}
+}

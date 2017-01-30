@@ -1,0 +1,163 @@
+@import "mixins";
+
+/* Floating Menu */
+/*-----------------------------------*/
+
+.floating-menu {
+	li {
+		a {
+			display: block;
+			font-size: 0;
+			color: @color-white;
+			white-space: nowrap;
+		}
+
+		i {
+			.size(60px, 50px);
+			text-align: center;
+			font-size: 30px;
+			line-height: 50px;
+			text-shadow: 1px 1px 0 @color-green2;
+			border-bottom: 1px solid @color-green2;
+			background-color: @color-green;
+			.transition();
+			position: relative;
+			z-index: 1;
+		}
+
+		span {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			height: 50px;
+			line-height: 50px;
+			padding: 0 24px 0 20px;
+			font-size: @font-size;
+			font-weight: 600;
+			color: @color-white;
+			text-transform: uppercase;
+			background-color: @color-green;
+			.transition();
+			.transform(translate3d(-110%, 0, 0));
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: -8px;
+				border-top: 25px solid transparent;
+				border-bottom: 25px solid transparent;
+				border-left: 8px solid @color-green;
+				.transition();
+			}
+		}
+
+		&.active, &:hover, &:active {
+			span {
+				.transform(translate3d(-100%, 0, 0));
+				background-color: @color-green3;
+				&:after {border-left-color: @color-green3;}
+			}
+
+			i {background-color: @color-green3;}
+		}
+
+		&:hover, &:active {
+			span {
+				.transform(translate3d(0, 0, 0));
+			}
+		}
+	}
+}
+
+/* Back To Top Button */
+/*-----------------------------------*/
+
+a.to-top {
+	.size(60px, 50px);
+	background-color: @color-yellow2;
+	border-top: 1px solid @color-yellow3;
+	border-bottom: 1px solid @color-yellow3;
+	font-size: 10px;
+	font-weight: 600;
+	color: @color-white;
+	text-transform: uppercase;
+	text-align: center;
+	text-shadow: 1px 1px 0 @color-yellow3;
+	padding-top: 9px;
+	.transition();
+
+	&:hover, &:active {background-color: @color-yellow;}
+
+	i {
+		display: block;
+		font-size: 16px;
+		margin-bottom: 3px;
+	}
+
+	@media @xs {display: none;}
+}
+
+/* SideBar Menu */
+/*-----------------------------------*/
+
+.side-menu {
+	height: 100%;
+	margin-right: -10px;
+	padding-right: 10px;
+
+	a {
+		display: block;
+		border-bottom: 1px solid #212428;
+		padding: 12px 5px;
+		@media @xs {padding: 6px 5px;}
+		font-size: @font-size - 2;
+		color: @color-light2;
+
+		&:hover, &:active {
+			color: @color-yellow;
+			i {color: @color-yellow;}
+		}
+	}
+
+	i {
+		font-size: 16px;
+		color: @color-gray2;
+		margin-right: 18px;
+		vertical-align: -18%;
+		.transition();
+	}
+}
+
+/* BreadCrumbs */
+/*-----------------------------------*/
+
+.breadcrumbs {
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	li {
+		float: left;
+		font-size: 12px;
+		color: @color-lightGray3;
+
+		&:after {
+			content: '/';
+			display: inline-block;
+			padding: 0 4px;
+		}
+
+		&:last-child:after {display: none;}
+
+		a {
+			color: @color-lightGray3;
+			&:hover, &:active {color: @color-green;}
+		}
+
+		span {color: @color-green;}
+	}
+}
+
+
+
+
